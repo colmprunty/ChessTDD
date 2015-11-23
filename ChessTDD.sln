@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessTDD", "ChessTDD\ChessTDD.csproj", "{91C04D92-9AA3-42E2-B35D-EFC2E1B4D03C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessTDD.Tests", "ChessTDD.Tests\ChessTDD.Tests.csproj", "{34111EF1-C207-4BC8-BED5-C7683F344B95}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91C04D92-9AA3-42E2-B35D-EFC2E1B4D03C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91C04D92-9AA3-42E2-B35D-EFC2E1B4D03C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91C04D92-9AA3-42E2-B35D-EFC2E1B4D03C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91C04D92-9AA3-42E2-B35D-EFC2E1B4D03C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34111EF1-C207-4BC8-BED5-C7683F344B95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34111EF1-C207-4BC8-BED5-C7683F344B95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34111EF1-C207-4BC8-BED5-C7683F344B95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34111EF1-C207-4BC8-BED5-C7683F344B95}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
