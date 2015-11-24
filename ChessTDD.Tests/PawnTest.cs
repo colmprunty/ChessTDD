@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using NUnit.Framework;
 
 namespace ChessTDD.Tests
@@ -10,14 +11,13 @@ namespace ChessTDD.Tests
         public class GetMovesFrom
         {
             [Test]
-            public void returns_2_3_when_passed_2_2()
+            public void returns_2_3_as_one_result_when_passed_2_2()
             {
                 var pawn = new Pawn();
 
-                Tuple<int, int> possibleMoves = pawn.GetMovesFrom(2, 2);
-
-                Assert.AreEqual(2, possibleMoves.Item1);
-                Assert.AreEqual(3, possibleMoves.Item2);
+                var possibleMoves = pawn.GetMovesFrom(2, 2);
+                
+                Assert.IsTrue(possibleMoves.Any(bc => bc.X == 2 && bc.Y == 3 ));
             }
         }
     }

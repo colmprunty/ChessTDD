@@ -21,7 +21,7 @@ namespace ChessTDD.Tests
             [Test]
             public void retrieves_piece_added_to_location()
             {
-                Target.AddPiece(Piece,1,1);
+                Target.AddPiece(Piece, new BoardCoordinate(1,1));
 
                 Assert.AreEqual(Piece, Target.GetPiece(1,1));
             }
@@ -33,7 +33,7 @@ namespace ChessTDD.Tests
             [Test]
             public void does_not_throw_exception_when_adding_a_piece_to_an_unoccupied_square()
             {
-                Target.AddPiece(new Pawn(), 2, 1);
+                Target.AddPiece(new Pawn(), new BoardCoordinate(2,1));
             }
         }
     }
