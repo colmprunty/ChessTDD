@@ -13,5 +13,15 @@
             _x = x;
             _y = y;
         }
+
+        public bool IsCoordinateValidForBoardSize(int boardSize)
+        {
+            return IsDimensionValidForBoardSize(X, boardSize) && IsDimensionValidForBoardSize(Y, boardSize);
+        }
+
+        private bool IsDimensionValidForBoardSize(int dimension, int boardSize)
+        {
+            return dimension > 0 && dimension <= boardSize;
+        }
     }
 }

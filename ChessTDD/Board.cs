@@ -1,4 +1,6 @@
-﻿namespace ChessTDD
+﻿using System;
+
+namespace ChessTDD
 {
     public class Board
     {
@@ -7,12 +9,15 @@
 
         public void AddPiece(Pawn piece, BoardCoordinate moveTarget)
         {
+            if(!moveTarget.IsCoordinateValidForBoardSize(BoardSize))
+                throw new ArgumentException("moveTarget");
+
             _pieces[moveTarget.X, moveTarget.Y] = piece;
         }
 
-        public Pawn GetPiece(int xCoordinate, int yCoordinate)
+        public Pawn GetPiece(BoardCoordinate squareInQuestion)
         {
-            return _pieces[xCoordinate, yCoordinate];
+            return _pieces[squareInQuestion.X, squareInQuestion.Y];
         }
     }
 }

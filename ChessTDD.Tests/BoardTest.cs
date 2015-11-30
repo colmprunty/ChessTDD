@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
+using Assert = NUnit.Framework.Assert;
 
 namespace ChessTDD.Tests
 {
@@ -23,7 +25,7 @@ namespace ChessTDD.Tests
             {
                 Target.AddPiece(Piece, new BoardCoordinate(1,1));
 
-                Assert.AreEqual(Piece, Target.GetPiece(1,1));
+                Assert.AreEqual(Piece, Target.GetPiece(new BoardCoordinate(1,1)));
             }
         }
 
@@ -34,6 +36,27 @@ namespace ChessTDD.Tests
             public void does_not_throw_exception_when_adding_a_piece_to_an_unoccupied_square()
             {
                 Target.AddPiece(new Pawn(), new BoardCoordinate(2,1));
+            }
+
+            [Test]
+            public void throws_exception_when_boardcoordinate_has_larger_x_value_than_board_size()
+            {
+                var coordinate = new BoardCoordinate(9, 1);
+                Assert.Throws<ArgumentException>(() => Target.AddPiece(new Pawn(), coordinate));
+            }
+
+            [Test]
+            public void throws_exception_when_boardcoordinate_has_larger_y_value_than_board_size()
+            {
+                var coordinate = new BoardCoordinate(1, 9);
+                Assert.Throws<ArgumentException>(() => Target.AddPiece(new Pawn(), coordinate));
+            }
+
+            [Test]
+            public void throws_exception_when_boardcoordinate_has_zero_x_value()
+            {
+                var coordinate = new BoardCoordinate(0, 1);
+                Assert.Throws<ArgumentException>(() => Target.AddPiece(new Pawn(), coordinate));
             }
         }
     }
