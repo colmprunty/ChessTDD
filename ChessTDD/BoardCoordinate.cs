@@ -2,8 +2,8 @@
 {
     public struct BoardCoordinate
     {
-        private int _x;
-        private int _y;
+        private readonly int _x;
+        private readonly int _y;
 
         public int X { get { return _x; } }
         public int Y { get { return _y; } }

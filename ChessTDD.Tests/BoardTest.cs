@@ -7,7 +7,7 @@ namespace ChessTDD.Tests
     [TestFixture]
     public class BoardTest
     {
-        private Pawn Piece { get; set; }
+        private Piece Piece { get; set; }
         private Board Target { get; set; }
 
         [SetUp]
@@ -57,6 +57,13 @@ namespace ChessTDD.Tests
             {
                 var coordinate = new BoardCoordinate(0, 1);
                 Assert.Throws<ArgumentException>(() => Target.AddPiece(new Pawn(), coordinate));
+            }
+
+            [Test]
+            public void accepts_rook_as_argument_for_piece()
+            {
+                var coordinate = new BoardCoordinate(1, 2);
+                Target.AddPiece(new Rook(), coordinate);
             }
         }
     }

@@ -5,9 +5,9 @@ namespace ChessTDD
     public class Board
     {
         private const int BoardSize = 8;
-        private readonly Pawn[,] _pieces = new Pawn[BoardSize, BoardSize];
+        private readonly Piece[,] _pieces = new Piece[BoardSize, BoardSize];
 
-        public void AddPiece(Pawn piece, BoardCoordinate moveTarget)
+        public void AddPiece(Piece piece, BoardCoordinate moveTarget)
         {
             if(!moveTarget.IsCoordinateValidForBoardSize(BoardSize))
                 throw new ArgumentException("moveTarget");
@@ -15,7 +15,7 @@ namespace ChessTDD
             _pieces[moveTarget.X, moveTarget.Y] = piece;
         }
 
-        public Pawn GetPiece(BoardCoordinate squareInQuestion)
+        public Piece GetPiece(BoardCoordinate squareInQuestion)
         {
             return _pieces[squareInQuestion.X, squareInQuestion.Y];
         }

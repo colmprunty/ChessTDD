@@ -2,11 +2,16 @@
 
 namespace ChessTDD
 {
-    public class Pawn
+    public class Pawn : Piece
     {
-        public IEnumerable<BoardCoordinate> GetMovesFrom(int xCoordinate, int yCoordinate)
+        public bool HasMoved { get; set; }
+
+        public override IEnumerable<BoardCoordinate> GetMovesFrom(int xCoordinate, int yCoordinate)
         {
             yield return new BoardCoordinate(xCoordinate, yCoordinate+1);
-        } 
+
+            if(!HasMoved)
+                yield return new BoardCoordinate(2, 4);
+        }
     }
 }
