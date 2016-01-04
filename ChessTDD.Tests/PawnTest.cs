@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using NUnit.Framework;
 
 namespace ChessTDD.Tests
@@ -21,7 +20,7 @@ namespace ChessTDD.Tests
             [Test]
             public void returns_2_3_as_one_result_when_passed_2_2()
             {
-                var possibleMoves = Target.GetMovesFrom(2, 2);
+                var possibleMoves = Target.GetMovesFrom(new BoardCoordinate(2,2), 8);
                 
                 Assert.IsTrue(possibleMoves.Any(bc => bc.X == 2 && bc.Y == 3 ));
             }
@@ -29,7 +28,7 @@ namespace ChessTDD.Tests
             [Test]
             public void returns_2_4_as_one_result_when_passed_2_2_when_piece_has_not_moved()
             {
-                var possibleMoves = Target.GetMovesFrom(2, 2);
+                var possibleMoves = Target.GetMovesFrom(new BoardCoordinate(2, 2), 8);
 
                 Assert.IsTrue(possibleMoves.Any(x => x.X == 2 && x.Y == 4));
             }
@@ -38,7 +37,7 @@ namespace ChessTDD.Tests
             public void does_not_return_2_4_when_passed_2_2_if_piece_has_already_moved()
             {
                 Target.HasMoved = true;
-                var possibleMoves = Target.GetMovesFrom(2, 2);
+                var possibleMoves = Target.GetMovesFrom(new BoardCoordinate(2, 2), 8);
 
                 Assert.IsFalse(possibleMoves.Any(x => x.X == 2 && x.Y == 4));
             }

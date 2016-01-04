@@ -6,14 +6,42 @@ namespace ChessTDD.Tests
     [TestFixture]
     public class RookTest
     {
+        private Rook Target { get; set; }
+        private static readonly BoardCoordinate DefaultCoordinate = new BoardCoordinate(1, 1);
+        private const int DefaultBoardSize = 8;
+
+        [SetUp]
+        public void Setup()
+        {
+            Target = new Rook();
+        }
+
         [TestFixture]
-        public class Constructor
+        public class Constructor : RookTest
         {
             [Test]
-            public void returns_empty_collection()
+            public void returns_7_vertical_moves_with_board_size_8()
             {
-                var rook = new Rook();
-                Assert.AreEqual(rook.GetMovesFrom(1,1).Count(), 0);}
+                var moves = Target.GetMovesFrom(DefaultCoordinate, DefaultBoardSize);
+
+                Assert.AreEqual(moves.Count(x => x.X == 1), 7);
+            }
+
+            [Test]
+            public void returns_7_horizontal_moves_with_board_size_8()
+            {
+                var moves = Target.GetMovesFrom(DefaultCoordinate, DefaultBoardSize);
+
+                Assert.AreEqual(moves.Count(x => x.Y == 1), 7);
+            }
+
+            [Test]
+            public void returns_no_moves_that_contain_a_zero()
+            {
+                var moves = Target.GetMovesFrom(DefaultCoordinate, DefaultBoardSize);
+
+                Assert.AreEqual(0, moves.Count(x => x.X == 0 || x.Y == 0));
+            }
         }
     }
 }
